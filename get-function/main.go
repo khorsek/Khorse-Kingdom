@@ -1,13 +1,14 @@
 package main
 import (
     "log"
-    "fmt"
+    
     "github.com/aws/aws-lambda-go/events"
     "github.com/aws/aws-lambda-go/lambda"
     "github.com/aws/aws-sdk-go/aws"
     "github.com/aws/aws-sdk-go/aws/session"
     "github.com/aws/aws-sdk-go/service/dynamodb"
-    "github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
+    "github.com/aws/aws-lambda-go/lambdaurl"
+    
 )
 func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 
@@ -15,21 +16,21 @@ func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
         SharedConfigState: session.SharedConfigEnable,
     }))
     svc := dynamodb.New(sess)
-    var input = &dynamodb.GetItemInput{
+    input := &dynamodb.UpdateItemInput{
         TableName: aws.String("khorse-challenge"),
         Key: map[string]*dynamodb.AttributeValue{
             "ID": {
                 S: aws.String("visitors"),
             },
         },
+        UpdateExpression: aws.String("ADD visitors :inc"),
+        ExpressionAttributeValues: map[string]*dynamodb.AttributeValue{
+            ":inc": {
+                N: aws.String("1"),
+            },
+        },
     }
-    queryOutput, err := svc.GetItem(input)
-    type Count struct {
-        ID       string `json:"ID"`
-        Visitors string `json:"visitors"`
-    }
-    count := Count{}
-    err = dynamodbattribute.UnmarshalMap(queryOutput.Item, &count)
+    _, err := svc.UpdateItem(input)
     if err != nil {
         log.Fatalf("Got error calling UpdateItem: %s", err)
     }
@@ -39,7 +40,6 @@ func handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
             "Access-Control-Allow-Methods": "*",
             "Access-Control-Allow-Headers": "*",
         },
-        Body:       fmt.Sprintf("{ \"count\": \"%s\" }", count.Visitors),
         StatusCode: 200,
     }, nil
 }
