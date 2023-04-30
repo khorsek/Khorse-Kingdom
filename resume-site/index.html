@@ -1,0 +1,125 @@
+<head>
+  <script>
+      fetch('https://msw65onsja.execute-api.us-east-2.amazonaws.com/Prod/put')
+          .then(() => fetch('https://msw65onsja.execute-api.us-east-2.amazonaws.com/Prod/get'))
+          .then(response => response.json())
+          .then((data) => {
+              document.getElementById('replaceme').innerText = data.count
+          })
+  </script>
+
+    
+     
+  
+</head>
+
+
+<div class="mainArea">
+<!-- main content -->
+<main>
+<style>
+UL { margin-top:0px; margin-bottom:0px; }
+
+.mainArea {
+  color: rgb(0, 0, 0);
+  background-color: white;
+}
+</style>
+<div class="text">
+This is my r&eacute;sum&eacute; (CV) page. Everything you see on here was done by me as a sort of hobby project 
+since I'm quite passionate about working in the cloud. More details in my work experience below.
+</div>
+<hr/>
+
+
+<center>
+Khoras Kashmari<br/>
+Location: San Antonio, TX, USA (willing to relocate)<br/>
+Contact: <a class="u-link" href="mailto:khoraskashmari@gmail.com" target="_blank">khoraskashmari@gmail.com</a><br/>
+Web: <a href="https://khorask.com/">khorask.com</a>
+<div class="d-flex flex-row-reverse">
+  <div class="p2">View Count : <span id="replaceme"> </span></div>
+  <div id="counter" class="bg-primary text-white p2"></div>
+ </div>
+</center>
+<br/>
+
+<div class="mainArea">
+  <!-- main content -->
+  <main>
+  <h2>About me</h2>
+  <div class="text">
+    <p>I'm currently 22 years old and was born in San Antonio, Texas. I got my first "modern" PC, 
+      way back in 2007, an old acer desktop that I used to play games like Command & Conquer and Stronghold
+      Crusaders on and I've been obsessed with technology ever since. I attended the University of Texas at San Antonio from 
+      2018 - 2023 and will graduate this may with a Bachelors of Business in Cybersecurity.
+
+      I have work experience in a few different areas such as Retail, Data Analytics, and most recently 
+      Penetration Testing.</p>
+  </div>
+  </main>
+  <div class="clear"></div>
+  </div>
+<br/>
+<b>Primary Skills</b>
+<ul>
+<li>Penetration Testing</li>
+<li>AWS Cloud Computing</li>
+<li>Basic Knowledge and familiarity of many programming languages, including:
+  <ul>
+    <li>Java</li>
+    <li>Javascript</li>
+    <li>C#</li>
+    <li>Python</li>
+    <li>HTML</li>
+  </ul>
+<li>
+  Experience with many technologies and platforms:
+  <ul>
+    <li>Windows, Linux, Kali Linux, Centos, Ubuntu</li>
+    <li>VMware and VirtualBox</li>
+    <li>Used Amazon S3, CloudFront, DynamoDB, API gateway, Lambda, Python, AWS SAM, 
+      Route 53, Git , PowerShell , and JavaScript to make this website.</li>
+  </ul>
+<li>Strong attention to detail and a focus on quality.</li>
+<li>Quick learning</li>
+<li>Understand object-oriented programming, design, and computer architecture.</li>
+<li>Experience building, repairing, and networking computers in basic applications.</li>
+<li>Excellent troubleshooting skills.</li>
+<li>Proficiency in Microsoft Office Programs(Excel, Word, Outlook, etc)</li>
+</ul>
+<br/>
+
+<b>Professional Experience</b><br/>
+<li><u>June 2022 - August 2022</u> - Cybersecurity Intern working in the Penetration Testing Team at Ernst and Young.
+  <br/>
+  As an intern, I worked alongside experienced Penetration Testers on their engagement which focused on Web API
+   Penetration Testing. Learned how to use a combination of search engines like Censys and Shonan with Google 
+   Dorking to learn effective reconnaissance techniques, as well as some tools like Ffuf, Dirb, and others to 
+   probe for potential targets. 
+</li>
+<br/>
+<li><u>September 2021 - April 2022</u> - Data Analyst Intern working at the Veteran's Health Administration.
+  <br/>
+  As an intern, I worked alongside the individuals running the Health Professional Scholarship Program (HPSP), 
+  helping deliver scholarships to graduating medical students and ushering in the next generation of the VHA's 
+  medical staff through data entry and analysis, using Excel, InDesign, and Photoshop as part of this process. 
+</li>
+<br/>
+<li><u>October 2019 - September 2021</u> - Lot Associate working at The Home Depot.
+  <br/>
+  As a lot associate, I was responsible for assisting customers with loading their bought goods, as well as monitoring 
+  and maintaining the entrance of the store. Since we are the first and last associates to interact with customers, 
+  I have developed my ability to engage with customers in a way that makes them feel at ease and want to keep coming back to our store. 
+</li>
+<br/>
+
+<b>References</b>
+<ul><li>Available upon request</li></ul>
+<br/>
+
+<footer>
+Website is a work in progress. Stay Tuned!
+</footer>
+</body>
+</html>

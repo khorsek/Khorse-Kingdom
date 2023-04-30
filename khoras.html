@@ -1,0 +1,95 @@
+<!-- To update this file to the cloud, use command: "make deploy-site in powershell" -->
+
+<head>
+  <script>
+      fetch('https://msw65onsja.execute-api.us-east-2.amazonaws.com/Prod/put')
+          .then(() => fetch('https://msw65onsja.execute-api.us-east-2.amazonaws.com/Prod/get'))
+          .then(response => response.json())
+          .then((data) => {
+              document.getElementById('replaceme').innerText = data.count
+          })
+  </script>
+
+    <div class="d-flex flex-row-reverse">
+      <div class="p2">View Count : <span id="replaceme"> </span></div>
+      <div id="counter" class="bg-primary text-white p2"></div>
+     </div>
+     
+  
+</head>
+
+
+<div class="l-Header">
+  <div class="l-Header-col">
+    
+      <h1 class="Title">
+        <span class="u-shadow">
+          Khoras Kashmari<br>
+          
+        </span>
+        <span class="Title-sub">Cybersecurity Student</span>
+      </h1>
+    </a>
+  </div>
+  <div class="l-Header-col Contact">
+    <div>San Antonio, Texas</div>
+    <div><a class="u-link" href="mailto:akhoras@yahoo.com" target="_blank">akhoras@yahoo.com</a></div>
+  </div>
+</div>
+
+<section class="l-Section">
+  <h2 class="l-Section-title h3 u-hidden@sm-down">Profile</h2>
+  <div class="l-Section-content">
+    <p>Motivated, teamwork-oriented, and responsible Cybersecurity student willing to learn as much as I can to excel in my career. Looking for a role where I can grow and learn from experienced team members.</p>
+  </div>
+</section>
+
+<section class="l-Section">
+  <h2 class="l-Section-title h3">Skills</h2>
+  <div class="l-Section-content">
+    <ul>
+      <li>Highly knowledgeable about computer hardware, Linux and Windows operating systems, including the installation of software as well as the hardware that runs it.</li>
+      <li>Problem solving and resolution.</li>
+      <li>Fluent in English and Urdu</li>
+      <li>Proficiency in Microsoft and Adobe software such as Excel, Word, Teams, InDesign, Photoshop, and more.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="l-Section">
+  <h2 class="l-Section-title h3">Experience</h2>
+  <div class="l-Section-content">
+    <h3>Technology Consulting | Cybersecurity Intern</h3>
+    <a class=>Ernst and Young | San Antonio</a> (TX)<br> June 2022 - August 2022
+    <ul>
+        <li>
+            As an intern, I worked alongside experienced Penetration Testers on their engagement which focused on Web API Penetration Testing
+        </li>
+    </ul>
+
+    <h3>Data Analyst Intern</h3>
+    <a class=>Veteran's Health Administration | San Antonio</a> (TX)<br> September 2021 - April 2022
+    <ul>
+        <li>
+            As an intern, I worked alongside the individuals running the Health Professional Scholarship Program (HPSP), helping deliver scholarships to graduating medical students and ushering in the next generation of the VHA’s medical staff through data entry and analysis, using Excel, InDesign, and Photoshop as part of this process.
+        </li>
+    </ul>
+
+
+<section class="l-Section">
+  <h2 class="l-Section-title h3">Education</h2>
+  <div class="l-Section-content">
+    <h3>Bachelor of Business in Cyber Security</h3>
+    <a class=>University of Texas at San Antonio</a><br> 2018 - 2023
+  </div>
+</section>
+
+<section class="l-Section u-hidden@print">
+  <h2 class="l-Section-title h3">Interests</h2>
+  <div class="l-Section-content">
+    <p>Penetration Testing, Devops</p>
+    <p>Site is work in progress.</p>
+  </div>
+</section>
+</article>
+
