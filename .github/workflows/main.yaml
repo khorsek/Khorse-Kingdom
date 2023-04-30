@@ -42,7 +42,7 @@ jobs:
         with:
           args: --delete
         env:
-          AWS_S3_BUCKET: ronit-demo-site
+          AWS_S3_BUCKET: my-website-cool
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          SOURCE_DIR: ./resume-site
+          SOURCE_DIR: /resume-site
