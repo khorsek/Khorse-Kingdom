@@ -1,48 +1,48 @@
-name: main
-on: push
-env:
-  GO_VERSION: 1.18.3
+# name: main
+# on: push
+# env:
+#   GO_VERSION: 1.18.3
   
-jobs: 
-  build-infra:
-    runs-on: ubuntu-latest
-    timeout-minutes: 2
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-go@v2.1.3
-        with:
-          go-version: ${{ env.GO_VERSION }}
-      - name: test get-function
-        run: cd get-function && go run -v ./ && cd ../../
-      - name: test put-function
-        run: cd put-function && go run -v ./ && cd ../../
+# jobs: 
+#   build-infra:
+#     runs-on: ubuntu-latest
+#     timeout-minutes: 2
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: actions/setup-go@v2.1.3
+#         with:
+#           go-version: ${{ env.GO_VERSION }}
+#       - name: test get-function
+#         run: cd get-function && go run -v ./ && cd ../../
+#       - name: test put-function
+#         run: cd put-function && go run -v ./ && cd ../../
 
-  build-and-deploy-infra:
-    needs: build-infra
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-      - uses: aws-actions/setup-sam@v1
-      - uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-2
-      - run: sam build
-        working-directory: ./
-      - run: sam deploy --no-confirm-changeset --no-fail-on-empty-changeset
-        working-directory: ./
+#   build-and-deploy-infra:
+#     needs: build-infra
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: actions/setup-python@v2
+#       - uses: aws-actions/setup-sam@v1
+#       - uses: aws-actions/configure-aws-credentials@v1
+#         with:
+#           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#           aws-region: us-east-2
+#       - run: sam build
+#         working-directory: ./
+#       - run: sam deploy --no-confirm-changeset --no-fail-on-empty-changeset
+#         working-directory: ./
 
-  deploy-site:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: jakejarvis/s3-sync-action@master
-        with:
-          args: --delete
-        env:
-          AWS_S3_BUCKET: my-website-cool
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          SOURCE_DIR: resume-site
+#   deploy-site:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: jakejarvis/s3-sync-action@master
+#         with:
+#           args: --delete
+#         env:
+#           AWS_S3_BUCKET: my-website-cool
+#           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#           SOURCE_DIR: resume-site
